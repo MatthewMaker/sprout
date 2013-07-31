@@ -15,7 +15,7 @@ run_unless_marker_file_exists(marker_version_string_for("rvm")) do
   end
 
   [
-    "curl -Lsf http://github.com/wayneeseguin/rvm/tarball/#{rvm_git_revision_hash} -o /tmp/rvmtmp.tar | unar -o #{RVM_HOME}/src/rvm /tmp/rvmtmp.tar",
+    "curl -Lsf http://github.com/wayneeseguin/rvm/tarball/#{rvm_git_revision_hash} -o /tmp/rvmtmp.tar.gz | unar -no-directory -o #{RVM_HOME}/src/rvm /tmp/rvmtmp.tar.gz",
     "cd #{RVM_HOME}/src/rvm; ./install",
     "#{RVM_COMMAND} --version | grep Wayne"
   ].each do |rvm_cmd|
